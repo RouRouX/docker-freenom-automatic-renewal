@@ -12,4 +12,5 @@ ln -s /conf/.env /freenom/.env
 cd /freenom/
 php run
 crond
-#php -a
+#防止sh执行完自动退出
+php -a
