@@ -10,6 +10,6 @@ fi
 ln -s /conf/config.php /freenom/config.php
 ln -s /conf/.env /freenom/.env
 cd /freenom/
-php index.php
+php run
 crond
 #php -a
