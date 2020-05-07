@@ -15,6 +15,6 @@ if [ ! -f /freenom/.env ]; then
 fi
 cd /freenom/
 php run
-crond
-#防止sh执行完自动退出
-php -a
+crond -f
+#防止sh执行完自动退出，可以用crond -f 前台运行解决
+#php -a
