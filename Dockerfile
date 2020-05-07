@@ -5,7 +5,7 @@ RUN apk add git tzdata && \
 	git clone https://github.com/luolongfei/freenom.git && \
 	cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 	apk del tzdata git && \
-	mkdir -p oldiy && \
+	mkdir -p /confbak/ && \
 	cp /freenom/.env.example /confbak/.env && \
 	cp /freenom/config.php /confbak/ && \
 	rm -rf /freenom/config.php && \
