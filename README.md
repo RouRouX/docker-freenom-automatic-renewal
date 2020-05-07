@@ -18,10 +18,13 @@ docker run -d --name freenom -v <path to config>:/conf rouroux/freenom-automatic
 
 详细配置说明查看[项目地址](https://github.com/luolongfei/freenom)
 
+## 最近更新：
 
-## 鸣谢
+2020年5月7日 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/1fed4f9c67755f4b75f4d7bf15c550d427984013) 制作镜像
 
-[luolongfei/freenom](https://github.com/luolongfei/freenom) PHP自动续期脚本
+## 鸣谢：
 
-[oldiy/freenom-automatic-renewal](https://hub.docker.com/r/oldiy/freenom-automatic-renewal) 基于上面脚本的docker镜像（此作者很久没更新了，所以才自己写了）
+[luolongfei/freenom](https://github.com/luolongfei/freenom) PHP自动续期脚本项目地址
+
+[oldiy/freenom-automatic-renewal](https://hub.docker.com/r/oldiy/freenom-automatic-renewal) 基于上面脚本的docker镜像地址（此作者很久没更新了，所以才自己写了）
 
