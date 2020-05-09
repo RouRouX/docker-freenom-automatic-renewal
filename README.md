@@ -1,5 +1,8 @@
 # freenom-automatic-renewal（免费域名自动续期）
-[![Docker Pulls](https://img.shields.io/docker/pulls/rouroux/freenom-automatic-renewal.svg)](https://hub.docker.com/r/rouroux/freenom-automatic-renewal) [![GitHub license](https://img.shields.io/github/license/RouRouX/docker-freenom-automatic-renewal)](https://github.com/RouRouX/docker-freenom-automatic-renewal/blob/master/LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/RouRouX/docker-freenom-automatic-renewal.svg?style=flat-square&label=Stars&logo=github)](https://github.com/RouRouX/docker-freenom-automatic-renewal/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/RouRouX/docker-freenom-automatic-renewal.svg?style=flat-square&label=Forks&logo=github)](https://github.com/RouRouX/docker-freenom-automatic-renewal/fork)
+[![Docker Stars](https://img.shields.io/docker/stars/rouroux/freenom-automatic-renewal.svg?style=flat-square&label=Stars&logo=docker)](https://hub.docker.com/r/rouroux/freenom-automatic-renewal)
+[![Docker Pulls](https://img.shields.io/docker/pulls/rouroux/freenom-automatic-renewal.svg?style=flat-square&label=Pulls&logo=docker)](https://hub.docker.com/r/rouroux/freenom-automatic-renewal) [![GitHub license](https://img.shields.io/github/license/RouRouX/docker-freenom-automatic-renewal.svg?style=flat-square&label=LICENSE)](https://github.com/RouRouX/docker-freenom-automatic-renewal/blob/master/LICENSE)
 
 
 ## 执行命令：
@@ -20,7 +23,9 @@ docker run -d --name freenom -v <path to config>:/conf rouroux/freenom-automatic
 
 ## 最近更新：
 
-2020年5月7日 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/1fed4f9c67755f4b75f4d7bf15c550d427984013) 制作镜像
+2020年5月9日 
+* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/1fed4f9c67755f4b75f4d7bf15c550d427984013) 制作镜像
+* 增加arm支持
 
 ## 鸣谢：
 
