@@ -17,5 +17,5 @@ jobs:
               with:
                 publish: true
                 imageName: freenom-automatic-renewal
-                dockerHubUser: ${{ USER }}
-                dockerHubPassword: ${{ PASSWORD }}
+                dockerHubUser: ${{ secrets.USER }}
+                dockerHubPassword: ${{ secrets.PASSWORD }}
