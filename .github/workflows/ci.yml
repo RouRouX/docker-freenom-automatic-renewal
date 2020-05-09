@@ -1,0 +1,21 @@
+name: Docker images publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        name: Build image job
+        steps:
+            - name: Checkout master
+              uses: actions/checkout@master
+            - name: Build and publish image
+              uses: ilteoood/docker_buildx@master
+              with:
+                publish: true
+                imageName: freenom-automatic-renewal
+                dockerHubUser: ${{ USER }}
+                dockerHubPassword: ${{ PASSWORD }}
