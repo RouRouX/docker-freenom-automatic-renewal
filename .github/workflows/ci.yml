@@ -8,7 +8,7 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-        name: Build image job test
+        name: Build image job
         steps:
             - name: Checkout master
               uses: actions/checkout@master
@@ -16,6 +16,6 @@ jobs:
               uses: ilteoood/docker_buildx@master
               with:
                 publish: true
-                imageName: freenom-automatic-renewal
+                imageName: rouroux/freenom-automatic-renewal
                 dockerHubUser: ${{ secrets.USER }}
                 dockerHubPassword: ${{ secrets.PASSWORD }}
