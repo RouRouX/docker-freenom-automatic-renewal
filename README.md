@@ -30,6 +30,10 @@ docker run -d --name freenom -v <path to config>:/conf rouroux/freenom-automatic
 * 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/1fed4f9c67755f4b75f4d7bf15c550d427984013) 制作镜像
 * 增加arm支持
 
+## 没有设备来运行docker镜像？试试利用github actions吧(需要有github账号)
+* [actions脚本（注释含简单教程）](https://github.com/RouRouX/freenom/blob/master/.github/workflows/run.yml) 
+* [大概原理](https://github.com/luolongfei/freenom/pull/29) 
+
 ## 鸣谢：
 
 [luolongfei/freenom](https://github.com/luolongfei/freenom) PHP自动续期脚本项目地址
