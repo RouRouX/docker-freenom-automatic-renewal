@@ -12,27 +12,25 @@ docker run -d --name freenom -v <path to config>:/conf rouroux/freenom-automatic
 ```
 
 ## 简单说明：
+支持X86、X64和armv7、arm64的环境(VPS、群晖、各种派应该都行)
 
 第一次运行容器会在数据卷中建立两个配置文件config.php和.env
 
 修改.env中的freenom的账号信息和邮箱信息，重启容器即可收到邮件，每次启动容器都会执行一次，每天早上9点也会运行一次。
 
-如果想改成只有续期成功才发邮件，修改config.php中'noticeFreq' => 0
+如果想改成只有续期成功才发邮件，修改.env中NOTICE_FREQ=0
 
-详细配置说明查看[项目地址](https://github.com/luolongfei/freenom)
+其它配置参数说明查看[项目地址](https://github.com/luolongfei/freenom)
 
 ## 最近更新：
 
-2020年6月3日
+2020年6月5日
 
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/d12e1509d4d6d8e4b158fbcc86bb13fce09d8b3f) 制作镜像
+* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/94eba31fb37f96fb34bcabc89953335d0d2110e1) 制作镜像
 
-2020年5月30日 
-
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/0066029871c46394a2cfd4c9b2ba11c521de2da7) 制作镜像
+中间更新记录就不写了...
 
 2020年5月9日 
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/1fed4f9c67755f4b75f4d7bf15c550d427984013) 制作镜像
 * 增加arm支持
 
 ## 没有设备来运行docker镜像？试试利用github actions吧(需要有github账号)
