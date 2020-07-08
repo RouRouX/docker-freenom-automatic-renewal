@@ -11,8 +11,11 @@
 docker run -d --name freenom -v <path to config>:/conf rouroux/freenom-automatic-renewal
 ```
 
+## 支持环境：
+linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/386,linux/ppc64le,linux/s390x
+(VPS、群晖、各种派应该都行)
+
 ## 简单说明：
-支持X86、X64和armv7、arm64的环境(VPS、群晖、各种派应该都行)
 
 第一次运行容器会在数据卷中建立两个配置文件config.php和.env
 
@@ -27,6 +30,7 @@ docker run -d --name freenom -v <path to config>:/conf rouroux/freenom-automatic
 2020年7月8日
 
 * 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/e8a1add52f21b0ac3b742fd0b6747dc31bcde5e2) 制作镜像
+* 增加更多平台支持
 
 中间更新记录就不写了...
 
