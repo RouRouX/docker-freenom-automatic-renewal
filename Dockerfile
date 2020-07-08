@@ -1,4 +1,4 @@
-FROM php:7.1-alpine
+FROM php:7.2-alpine
 MAINTAINER RouRouX <itrourou@gmail.com>
 
 RUN apk add git tzdata && \

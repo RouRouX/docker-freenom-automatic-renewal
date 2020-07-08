@@ -12,8 +12,9 @@ docker run -d --name freenom -v <path to config>:/conf rouroux/freenom-automatic
 ```
 
 ## 支持环境：
-linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/386,linux/ppc64le,linux/s390x
-(VPS、群晖、各种派应该都行)
+`linux/amd64`、`linux/arm/v6`、`linux/arm/v7`、`linux/arm64`、`linux/386`、`linux/ppc64le`、`linux/s390x`
+
+（VPS、群晖、各种派应该都行）
 
 ## 简单说明：
 
