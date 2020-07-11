@@ -26,20 +26,18 @@ docker run -d --name freenom -v <path to config>:/conf rouroux/freenom-automatic
 
 其它配置参数说明查看[项目地址](https://github.com/luolongfei/freenom)
 
-## 最近更新：
+## 最近一次更新：
 
-2020年7月8日
+2020年7月12日
 
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/e8a1add52f21b0ac3b742fd0b6747dc31bcde5e2) 制作镜像
-* 增加更多平台支持
+* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/ac56ac70e255af4c20f7644c91abede0c62f2734) 制作镜像
 
-中间更新记录就不写了...
+更早的更新记录就不写了...
 
-2020年5月9日 
-* 增加arm支持
 
 ## 没有设备来运行docker镜像？试试利用github actions吧(需要有github账号)
-* [actions脚本（注释含简单教程）](https://github.com/RouRouX/freenom/blob/master/.github/workflows/run.yml) 
+* [actions详细使用教程（只看这个就行）](https://github.com/RouRouX/freenom#--本项目最简单的使用方法)
+* [actions脚本](https://github.com/RouRouX/freenom/blob/master/.github/workflows/run.yml) 
 * [大概原理](https://github.com/luolongfei/freenom/pull/29) 
 
 ## 鸣谢：
