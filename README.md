@@ -28,9 +28,9 @@ docker run -d --name freenom -v <path to config>:/conf rouroux/freenom-automatic
 
 ## 最近一次更新：
 
-2020年7月12日
+2020年10月7日
 
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/ac56ac70e255af4c20f7644c91abede0c62f2734) 制作镜像
+* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/1342cdffbf0a16338646dd80dbe5a3128eef7711) 制作镜像
 
 更早的更新记录就不写了...
 
