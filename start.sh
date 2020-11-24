@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "$CRON cd /freenom/ && php run > freenom_crontab.log 2>&1">>/var/spool/cron/crontabs/root
 # 如果两个配置文件不存在，从备份中复制一波到数据卷中
 if [ ! -f /conf/config.php ]; then
 	cp /confbak/config.php /conf/config.php
