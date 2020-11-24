@@ -11,7 +11,7 @@ RUN apk add git tzdata && \
 	cp /freenom/.env.example /confbak/.env && \
 	cp /freenom/config.php /confbak/ && \
 	rm -rf /freenom/config.php && \
-	echo '$CRON cd /freenom/ && php run > freenom_crontab.log 2>&1'>>/var/spool/cron/crontabs/root
+	echo $CRON' cd /freenom/ && php run > freenom_crontab.log 2>&1'>>/var/spool/cron/crontabs/root
 
 COPY start.sh /freenom/
 RUN chmod +x /freenom/start.sh
