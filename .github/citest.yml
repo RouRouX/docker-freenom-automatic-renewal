@@ -1,4 +1,4 @@
-name: Docker Images Publish2
+name: Docker Images Publish22
 
 on:
   push:
