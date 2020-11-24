@@ -1,7 +1,7 @@
 FROM php:7.2-alpine
 MAINTAINER RouRouX <itrourou@gmail.com>
 
-ENV cron="00 09 * * *"
+ENV cron "00 09 * * *"
 
 RUN apk add git tzdata && \
 	git clone https://github.com/luolongfei/freenom.git && \
