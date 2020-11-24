@@ -1,9 +1,9 @@
-name: Docker Images Publish Test
+name: Docker Images Publish
 
 on:
   push:
     branches:
-      - dev
+      - master
 
 jobs:
   main:
