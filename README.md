@@ -14,7 +14,7 @@ docker run -d --name freenom -v <path to config>:/conf rouroux/freenom-automatic
 
 自定义脚本执行时间（每天早上9点）
 ```
-docker run -d --name freenom -e cron="00 09 * * *" -v <path to config>:/conf rouroux/freenom-automatic-renewal
+docker run -d --name freenom -e CRON="00 09 * * *" -v <path to config>:/conf rouroux/freenom-automatic-renewal
 ```
 
 ## 支持环境：
@@ -34,7 +34,7 @@ docker run -d --name freenom -e cron="00 09 * * *" -v <path to config>:/conf rou
 
 ## 最近一次更新：
 
-2020年11月24日
+2020年11月25日
 
 * 支持自定义执行时间
 * 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/1342cdffbf0a16338646dd80dbe5a3128eef7711) 制作镜像
