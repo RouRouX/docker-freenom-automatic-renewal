@@ -34,18 +34,13 @@ docker run -d --name freenom -e CRON="00 09 * * *" -v <path to config>:/conf rou
 
 ## 最近一次更新：
 
-2020年11月25日
+2021年5月20日
 
 * 支持自定义执行时间
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/1342cdffbf0a16338646dd80dbe5a3128eef7711) 制作镜像
+* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/72e526c2681a07a3ffbfe4f32368b7653989bcf4) 制作镜像
 
 更早的更新记录就不写了...
 
-
-## 没有设备来运行docker镜像？试试利用github actions吧(需要有github账号)
-* [actions详细使用教程（只看这个就行）](https://github.com/RouRouX/freenom#--本项目最简单的使用方法)
-* [actions脚本](https://github.com/RouRouX/freenom/blob/master/.github/workflows/run.yml) 
-* [大概原理](https://github.com/luolongfei/freenom/pull/29) 
 
 ## 鸣谢：
 
