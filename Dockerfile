@@ -8,7 +8,7 @@ WORKDIR /app
 RUN set -eux \  
     && apk update \
     && apk add git \
-    && git clone --depth 1 https://github.com/luolongfei/freenom.git /app
+    && git clone --depth 1 https://github.com/luolongfei/freenom.git /app \
     && apk add --no-cache tzdata bash
 
 VOLUME ["/conf", "/app/logs"]
