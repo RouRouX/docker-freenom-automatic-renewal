@@ -1,19 +1,18 @@
-FROM php:7.2-alpine
+FROM php:7.4.19-alpine3.13
 MAINTAINER RouRouX <itrourou@gmail.com>
 
-ENV CRON="00 09 * * *"
+ENV TZ Asia/Shanghai
 
-RUN apk add git tzdata && \
-	git clone https://github.com/luolongfei/freenom.git && \
-	cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-	apk del tzdata git && \
-	mkdir -p /confbak/ && \
-	cp /freenom/.env.example /confbak/.env && \
-	cp /freenom/config.php /confbak/ && \
-	rm -rf /freenom/config.php
+WORKDIR /app
 
-COPY start.sh /freenom/
-RUN chmod +x /freenom/start.sh
+RUN set -eux \  
+    && apk update \
+    && apk add git \
+    && git clone --depth 1 https://github.com/luolongfei/freenom.git /app
+    && apk add --no-cache tzdata bash
 
-VOLUME ["/conf"]
-CMD ["/freenom/start.sh"]
+VOLUME ["/conf", "/app/logs"]
+
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
+
+CMD ["crond", "-f"]
