@@ -5,39 +5,21 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/rouroux/freenom-automatic-renewal.svg?style=flat-square&label=Pulls&logo=docker)](https://hub.docker.com/r/rouroux/freenom-automatic-renewal) [![GitHub license](https://img.shields.io/github/license/RouRouX/docker-freenom-automatic-renewal.svg?style=flat-square&label=LICENSE)](https://github.com/RouRouX/docker-freenom-automatic-renewal/blob/master/LICENSE)
 
 
-## 执行命令：
+## 如何以docker方式运行：
 
-默认命令
-```
-docker run -d --name freenom -v <path to config>:/conf rouroux/freenom-automatic-renewal
-```
-
-自定义脚本执行时间（每天早上9点）
-```
-docker run -d --name freenom -e CRON="00 09 * * *" -v <path to config>:/conf rouroux/freenom-automatic-renewal
-```
+[参考项目说明](https://github.com/luolongfei/freenom#--%E6%96%B9%E5%BC%8F%E4%B8%80%E9%80%9A%E8%BF%87-docker-%E9%83%A8%E7%BD%B2%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%96%B9%E5%BC%8F)
 
 ## 支持环境：
 `linux/amd64`、`linux/arm/v6`、`linux/arm/v7`、`linux/arm64`、`linux/386`、`linux/ppc64le`、`linux/s390x`
 
 （VPS、群晖、各种派应该都行）
 
-## 简单说明：
-
-第一次运行容器会在数据卷中建立两个配置文件config.php和.env
-
-修改.env中的freenom的账号信息和邮箱信息，重启容器即可收到邮件，每次启动容器都会执行一次，每天早上9点也会运行一次。
-
-如果想改成只有续期成功才发邮件，修改.env中NOTICE_FREQ=0
-
-其它配置参数说明查看[项目地址](https://github.com/luolongfei/freenom)
-
 ## 最近一次更新：
 
-2021年5月20日
+2021年5月27日
 
-* 支持自定义执行时间
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/72e526c2681a07a3ffbfe4f32368b7653989bcf4) 制作镜像
+* 本镜像只比原项目多了支持环境，其它用法一致。
+* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/d348752a4a81abd538602fe70f1e3cdd6dcba3b8) 制作镜像
 
 更早的更新记录就不写了...
 
@@ -46,5 +28,4 @@ docker run -d --name freenom -e CRON="00 09 * * *" -v <path to config>:/conf rou
 
 [luolongfei/freenom](https://github.com/luolongfei/freenom) PHP自动续期脚本项目地址
 
-[oldiy/freenom-automatic-renewal](https://hub.docker.com/r/oldiy/freenom-automatic-renewal) 基于上面脚本的docker镜像地址（此作者很久没更新了，所以才自己写了）
 
