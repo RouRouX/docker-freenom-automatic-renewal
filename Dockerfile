@@ -9,7 +9,7 @@ RUN set -eux \
     && apk update \
     && apk add git \
     && git clone --depth 1 https://github.com/luolongfei/freenom.git /app \
-    && chmod chmod +x /app/docker-entrypoint.sh \
+    && chmod +x /app/docker-entrypoint.sh \
     && apk add --no-cache tzdata bash
 
 VOLUME ["/conf", "/app/logs"]
