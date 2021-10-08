@@ -42,6 +42,6 @@ $ docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/
 
 ## 鸣谢：
 
-[luolongfei/freenom](https://github.com/luolongfei/next-freenom) PHP自动续期脚本项目地址
+[luolongfei/next-freenom](https://github.com/luolongfei/next-freenom) PHP自动续期脚本项目地址
 
 
