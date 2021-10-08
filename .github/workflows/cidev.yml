@@ -1,9 +1,10 @@
 name: Docker Images Publish dev
 
 on:
-  push:
-    branches:
-      - dev
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - dev
 
 jobs:
   main:

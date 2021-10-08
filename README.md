@@ -23,7 +23,7 @@ $ docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/
  使得 Freenom 无法稳定提供服务。而如果你不自定义时间，程序会自动指定北京时间 06 ~ 23 点全时段随机的一个时间点作为执行时间，
  每次重启容器都会自动重新指定。**
 
-[更多参考项目说明](https://github.com/luolongfei/freenom#--%E6%96%B9%E5%BC%8F%E4%B8%80%E9%80%9A%E8%BF%87-docker-%E9%83%A8%E7%BD%B2%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%96%B9%E5%BC%8F)
+[更多参考项目说明](https://github.com/luolongfei/next-freenom#--%E6%96%B9%E5%BC%8F%E4%B8%80%E9%80%9A%E8%BF%87-docker-%E9%83%A8%E7%BD%B2%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%96%B9%E5%BC%8F)
 
 ## 支持环境：
 `linux/amd64`、`linux/arm/v6`、`linux/arm/v7`、`linux/arm64`、`linux/386`、`linux/ppc64le`、`linux/s390x`
@@ -32,16 +32,16 @@ $ docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/
 
 ## 最近一次更新：
 
-2021年5月27日
+2021年10月8日
 
-* 本镜像只比原项目多了支持环境，其它用法一致。
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/tree/d348752a4a81abd538602fe70f1e3cdd6dcba3b8) 制作镜像
+* 修改源仓库
+* 基于 [luolongfei/next-freenom](https://github.com/luolongfei/next-freenom/tree/4769df2745d55665a1ef2f860ec4dd8a4d3e422b) 制作镜像
 
 更早的更新记录就不写了...
 
 
 ## 鸣谢：
 
-[luolongfei/freenom](https://github.com/luolongfei/freenom) PHP自动续期脚本项目地址
+[luolongfei/freenom](https://github.com/luolongfei/next-freenom) PHP自动续期脚本项目地址
 
 
