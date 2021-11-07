@@ -11,9 +11,9 @@ jobs:
     - name: Sync Registry
       uses: onichandame/docker-registry-sync-action@master
       with:
-        source_repository: hub.docker.com/r/luolongfei/freenom:latest
+        source_repository: docker.io/luolongfei/freenom:latest
         source_username: ${{ secrets.DOCKERHUB_USERNAME }}
         source_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-        target_repository: hub.docker.com/r/rouroux/freenom-automatic-renewal:latest
+        target_repository: docker.io/rouroux/freenom-automatic-renewal:latest
         target_username: ${{ secrets.DOCKERHUB_USERNAME }}
         target_password: ${{ secrets.DOCKERHUB_PASSWORD }}
