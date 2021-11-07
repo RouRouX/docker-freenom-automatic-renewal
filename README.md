@@ -34,7 +34,7 @@ $ docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/
 
 2021年11月8日
 
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/)v0.4.3 制作镜像
+* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/) v0.4.3 制作镜像
 
 更早的更新记录就不写了...
 
