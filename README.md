@@ -32,9 +32,9 @@ $ docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/
 
 ## 最近一次更新：
 
-2021年11月8日
+2021年12月15日
 
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/) v0.4.3 制作镜像
+* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/) v0.4.4 制作镜像
 
 更早的更新记录就不写了...
 
