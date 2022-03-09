@@ -193,9 +193,9 @@ systemctl restart docker
 
 ## 最近一次更新：
 
-2021年12月15日
+2022年3月9日
 
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/) v0.4.4 制作镜像
+* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/) v0.4.5 制作镜像
 
 更早的更新记录就不写了...
 
