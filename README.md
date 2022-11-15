@@ -5,7 +5,40 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/rouroux/freenom-automatic-renewal.svg?style=flat-square&label=Pulls&logo=docker)](https://hub.docker.com/r/rouroux/freenom-automatic-renewal) [![GitHub license](https://img.shields.io/github/license/RouRouX/docker-freenom-automatic-renewal.svg?style=flat-square&label=LICENSE)](https://github.com/RouRouX/docker-freenom-automatic-renewal/blob/master/LICENSE)
 
 
-## 如何以docker方式运行：
+### 🐳 老司机直奔主题
+
+> 如何部署？
+
+```shell
+docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/app/logs rouroux/freenom-automatic-renewal
+```
+
+或者，如果你想自定义脚本执行时间，则命令如下
+
+```shell
+docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/app/logs -e RUN_AT="11:24" rouroux/freenom-automatic-renewal
+```
+
+> 如何升级到最新版或者重新部署呢？
+
+在`.env`所在目录，执行`docker rm -f freenom`删除现有容器，然后再执行 `docker rmi -f rouroux/freenom-automatic-renewal`
+删除旧的镜像，然后再执行上面的 `docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/app/logs rouroux/freenom-automatic-renewal`
+重新部署即可，这样部署后就是最新的代码了。当然，新版对应的`.env`文件可能有变动，不必担心，程序会自动更新`.env`文件内容，并将已有的配置迁移过去。
+
+一句话操作，即在`.env`文件所在目录下执行以下命令，即可完成更新升级：
+
+```shell
+docker rm -f freenom && docker rmi -f rouroux/freenom-automatic-renewal && docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/app/logs rouroux/freenom-automatic-renewal
+```
+
+
+### 🐳 新司机通过 Docker 部署详细教程
+
+*如果你有自己的服务器，这是最推荐的部署方式。*
+
+Docker 仓库地址为： [https://hub.docker.com/r/rouroux/freenom-automatic-renewal](https://hub.docker.com/r/rouroux/freenom-automatic-renewal) 。
+此镜像支持的架构为`linux/amd64`，`linux/arm64`，`linux/ppc64le`，`linux/s390x`，`linux/386`，`linux/arm/v7`，`linux/arm/v6`， 理论上支持`群晖`
+、`威联通`、`树莓派`以及各种类型的`VPS`。
 
 #### 1、安装 Docker
 
@@ -88,7 +121,7 @@ docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/ap
 | --restart 参数 | 配置容器启动类型，always 即为 docker 服务重新启动时自动启动本容器 |
 | -v 参数 | 挂载卷（volume），冒号后面是容器的路径，冒号前面是宿主机的路径（只支持绝对路径），`$(pwd)`表示当前目录，如果是 Windows 系统，则可用`${PWD}`替换此处的`$(pwd)` |
 | -e 参数 | 指定容器中的环境变量 |
-| luolongfei/freenom | 这是从 docker hub 下载回来的镜像完整路径名 |
+| rouroux/freenom-automatic-renewal | 这是从 docker hub 下载回来的镜像完整路径名 |
 
 </details>
 
@@ -99,19 +132,19 @@ docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/ap
     <summary>点我查看 .env 文件中部分配置项的含义</summary>
 <br>
 
-| 变量名 | 含义 | 默认值 | 是否必须 | 备注 |
-| :---: | :---: | :---: | :---: | :---: |
-| FREENOM_USERNAME | Freenom 账户 | - | 是 | 只支持邮箱账户，如果你是使用第三方社交账户登录的用户，请在 Freenom 管理页面绑定邮箱，绑定后即可使用邮箱账户登录 |
-| FREENOM_PASSWORD | Freenom 密码 | - | 是 | 某些特殊字符可能需要转义，详见`.env`文件内注释 |
-| MULTIPLE_ACCOUNTS | 多账户支持 | - | 否 | 多个账户和密码的格式必须是“`<账户1>@<密码1>\|<账户2>@<密码2>\|<账户3>@<密码3>`”，注意不要省略“<>”符号，否则无法正确匹配。如果设置了多账户，上面的`FREENOM_USERNAME`和`FREENOM_PASSWORD`可不设置 |
-| MAIL_USERNAME | 机器人邮箱账户 | - | 是 | 支持`Gmail`、`QQ邮箱`、`163邮箱`以及`Outlook邮箱`，尽可能使用`163邮箱`或者`QQ邮箱`而非`Gmail`。因为谷歌的安全机制，每次在新设备登录 `Gmail` 都会先被限制，需要手动解除限制才行。具体的配置方法参考「 [配置送信功能](#-配置送信功能) 」 |
-| MAIL_PASSWORD | 机器人邮箱密码 | - | 是 | `Gmail`填密码，`QQ邮箱`或`163邮箱`填授权码 |
-| TO | 接收通知的邮箱 | - | 是 | 你自己最常用的邮箱，用来接收机器人邮箱发出的域名相关邮件 |
-| MAIL_ENABLE | 是否启用邮件推送功能 | `1` | 否 | `1`：启用<br>`0`：不启用<br>默认启用，如果设为`0`，不启用邮件推送功能，则上面的`MAIL_USERNAME`、`MAIL_PASSWORD`、`TO`变量变为非必须，可不设置 |
-| TELEGRAM_CHAT_ID | 你的`chat_id` | - | 否 | 通过发送`/start`给`@userinfobot`可以获取自己的`id` |
-| TELEGRAM_BOT_TOKEN | 你的`Telegram bot`的`token` | - | 否 ||
-| TELEGRAM_BOT_ENABLE | 是否启用`Telegram Bot`推送功能 | `0` | 否 | `1`：启用<br>`0`：不启用<br>默认不启用，如果设为`1`，则必须设置上面的`TELEGRAM_CHAT_ID`和`TELEGRAM_BOT_TOKEN`变量 |
-| NOTICE_FREQ | 通知频率 | `1` | 否 | `0`：仅当有续期操作的时候<br>`1`：每次执行 |
+| 变量名 | 含义 | 默认值 | 是否必须 |                                             备注                                              |
+| :---: | :---: |:---:|:----:|:-------------------------------------------------------------------------------------------:|
+| FREENOM_USERNAME | Freenom 账户 |  -  |  是   |                只支持邮箱账户，如果你是使用第三方社交账户登录的用户，请在 Freenom 管理页面绑定邮箱，绑定后即可使用邮箱账户登录                 |
+| FREENOM_PASSWORD | Freenom 密码 |  -  |  是   |                                 某些特殊字符可能需要转义，详见`.env`文件内注释                                  |
+| MULTIPLE_ACCOUNTS | 多账户支持 |  -  |  否   |                                 多个账户和密码的格式必须是“`<账户1>@<密码1>\|<账户2>@<密码2>\|<账户3>@<密码3>`”，注意不要省略“<>”符号，否则无法正确匹配。如果设置了多账户，上面的`FREENOM_USERNAME`和`FREENOM_PASSWORD`可不设置 |
+| MAIL_USERNAME | 机器人邮箱账户 |  -  |  否   |                            支持`Gmail`、`QQ邮箱`、`163邮箱`以及`Outlook邮箱`                            |
+| MAIL_PASSWORD | 机器人邮箱密码 |  -  |  否   |                              `Gmail`填应用专用密码，`QQ邮箱`或`163邮箱`填授权码                              |
+| TO | 接收通知的邮箱 |  -  |  否   |                                你自己最常用的邮箱，用来接收机器人邮箱发出的域名相关邮件                                 |
+| MAIL_ENABLE | 是否启用邮件推送功能 | `0` |  否   | `1`：启用<br>`0`：不启用<br>默认不启用，如果设为`1`，启用邮件推送功能，则上面的`MAIL_USERNAME`、`MAIL_PASSWORD`、`TO`变量变为必填项 |
+| TELEGRAM_CHAT_ID | 你的`chat_id` |  -  |  否   |                           通过发送`/start`给`@userinfobot`可以获取自己的`id`                            |
+| TELEGRAM_BOT_TOKEN | 你的`Telegram bot`的`token` |  -  |  否   ||
+| TELEGRAM_BOT_ENABLE | 是否启用`Telegram Bot`推送功能 | `0` |  否   |    `1`：启用<br>`0`：不启用<br>默认不启用，如果设为`1`，则必须设置上面的`TELEGRAM_CHAT_ID`和`TELEGRAM_BOT_TOKEN`变量     |
+| NOTICE_FREQ | 通知频率 | `1` |  否   |                                 `0`：仅当有续期操作的时候<br>`1`：每次执行                                  |
 
 **更多配置项含义，请参考 [.env.example](https://github.com/luolongfei/freenom/blob/main/.env.example) 文件中的注释。**
 
@@ -126,9 +159,15 @@ docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/ap
 > 如何升级到最新版或者重新部署呢？
 >
 
-在`.env`所在目录，执行`docker rm -f freenom`删除现有容器，然后再执行 `docker rmi -f luolongfei/freenom`
-删除旧的镜像，然后再执行上面的 `docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/app/logs luolongfei/freenom`
+在`.env`所在目录，执行`docker rm -f freenom`删除现有容器，然后再执行 `docker rmi -f rouroux/freenom-automatic-renewal`
+删除旧的镜像，然后再执行上面的 `docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/app/logs rouroux/freenom-automatic-renewal`
 重新部署即可，这样部署后就是最新的代码了。当然，新版对应的`.env`文件可能有变动，不必担心，程序会自动更新`.env`文件内容，并将已有的配置迁移过去。
+
+一句话操作，即在`.env`文件所在目录下执行以下命令，即可完成更新升级：
+
+```shell
+docker rm -f freenom && docker rmi -f rouroux/freenom-automatic-renewal && docker run -d --name freenom --restart always -v $(pwd):/conf -v $(pwd)/logs:/app/logs rouroux/freenom-automatic-renewal
+```
 
 ##### 2.2 后期容器管理以及 Docker 常用命令
 
@@ -184,7 +223,7 @@ systemctl restart docker
 
 ***
 
-[更多参考原始项目说明](https://github.com/luolongfei/freenom#--%E6%96%B9%E5%BC%8F%E4%B8%80%E9%80%9A%E8%BF%87-docker-%E9%83%A8%E7%BD%B2%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%96%B9%E5%BC%8F)
+[更多参考原始项目说明](https://github.com/luolongfei/freenom#-%E9%80%9A%E8%BF%87-docker-%E9%83%A8%E7%BD%B2)
 
 ## 支持环境：
 `linux/amd64`、`linux/arm/v6`、`linux/arm/v7`、`linux/arm64`、`linux/386`、`linux/ppc64le`、`linux/s390x`
@@ -193,9 +232,9 @@ systemctl restart docker
 
 ## 最近一次更新：
 
-2022年3月9日
+2022年11月15日
 
-* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/) v0.4.5 制作镜像
+* 基于 [luolongfei/freenom](https://github.com/luolongfei/freenom/) v0.5.1 制作镜像
 
 更早的更新记录就不写了...
 

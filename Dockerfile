@@ -1,5 +1,6 @@
 FROM php:7.4.19-alpine3.13
 MAINTAINER RouRouX <itrourou@gmail.com>
+LABEL version="v0.5.1"
 
 ENV TZ Asia/Shanghai
 
